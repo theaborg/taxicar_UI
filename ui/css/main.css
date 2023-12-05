@@ -1,0 +1,142 @@
+body {
+  background-color: #f6c453;
+  height: 100%;
+  width: 100%;
+  font-family: "Courier New", Courier, monospace;
+  color: #323232;
+}
+
+header {
+  height: 5%;
+  top: 5%;
+  text-align: center;
+  text-size-adjust: auto;
+  width: 100%;
+  position: absolute;
+  font-size: 100%;
+}
+
+#logo_small {
+  top: 0%;
+  left: 0%;
+  height: 150%;
+}
+
+button {
+  background-color: #e1eedd;
+  margin: 1%;
+  align-items: center;
+  font-family: "Courier New", Courier, monospace;
+}
+
+button:hover,
+button:focus,
+button:target {
+  background-color: #8c9a64 !important;
+}
+
+section {
+  border-style: solid;
+  border-color: #183a1d;
+  border-radius: 2%;
+  padding: 2%;
+  margin: 1%;
+  position: absolute;
+  background-color: #f0a04b;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#steering,
+#speed,
+#camera {
+  width: 47%;
+  box-sizing: border-box;
+}
+
+#steering {
+  left: 0%;
+  top: 16%;
+  height: 20%;
+}
+
+#speed {
+  left: 0%;
+  top: 37%;
+  height: 20%;
+}
+
+#camera {
+  top: 16%;
+  left: 51%;
+  height: 41%;
+  margin-left: 0;
+}
+
+h2 {
+  padding: 0%;
+  margin: 0%;
+  width: auto;
+  text-size-adjust: auto;
+  text-align: center;
+}
+
+#car_cam {
+  right: 0%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  margin: 0%;
+  padding: 1%;
+  box-sizing: border-box;
+}
+
+#parameters,
+#status,
+#map_section {
+  top: 58%;
+  height: 45%;
+}
+
+#parameters {
+  width: 30%;
+  height: 45%;
+  left: 0%;
+  overflow: scroll;
+}
+
+#parameters p {
+  margin: 0rem;
+}
+
+input {
+  background-color: #f3fbef;
+}
+
+#status {
+  top: 58%;
+  left: 31%;
+  top: 58%;
+  width: 25%;
+  overflow: scroll;
+}
+
+#status p {
+  margin: 0rem;
+  width: 110%;
+}
+
+#speed_buttons p {
+  display: inline;
+}
+
+#map_section {
+  left: 57%;
+  width: 40%;
+}
+
+#copyright {
+  position: absolute;
+  top: 110%;
+  left: 0%;
+}

@@ -1,0 +1,12 @@
+{
+  "power": 40,
+  "time": 160,
+  "visited_nodes": "ABCD",
+  "steering_queue": ["left", "left", "right"],
+  "distance_obstacle": 20,
+  "distance_middle": 20,
+  "distance_left": 20,
+  "distance_right": 20,
+  "route": ["left", "left", "right"],
+  "speed": 0
+}

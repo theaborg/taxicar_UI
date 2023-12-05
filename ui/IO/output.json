@@ -1,0 +1,10 @@
+{
+  "manual_steering": true,
+  "control1": "1",
+  "control2": "2",
+  "control3": "3",
+  "map": "1",
+  "speed": 9,
+  "mission": "ABC",
+  "steering_command": "none"
+}

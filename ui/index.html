@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <title>Taxi Kurir Sundsvall</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=2"
+    />
+    <meta name="description" content="BESKRIVNING" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <script src="./javascript/index.js" type="module" nonce="1337"></script>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <!-- HEADER -->
+      <header>
+        <h1>Taxi Kurir Sundsvall</h1>
+      </header>
+
+      <!-- STEERING SECTION -->
+      <main>
+        <section id="steering">
+          <h2>Styrning</h2>
+          <div id="steering_buttons">
+            <button id="man">
+              <p>manuell</p>
+            </button>
+            <button id="auto">
+              <p>autonom</p>
+            </button>
+          </div>
+        </section>
+
+        <!-- SPEED SECTION -->
+        <section id="speed">
+          <h2>Hastighet</h2>
+          <div id="speed_buttons">
+            <button id="dec_speed">
+              <p>minska</p>
+            </button>
+            <p id="current_speed"></p>
+            <button id="inc_speed">
+              <p>öka</p>
+            </button>
+          </div>
+        </section>
+
+        <!-- CAMERA SECTION -->
+        <section id="camera">
+          <h2>Kamera</h2>
+          <img id="car_cam" src="" />
+        </section>
+
+        <!-- PARAMETERS SECTION -->
+        <section id="parameters">
+          <h2>Reglerparametrar</h2>
+          <div id="controls_div">
+            <div id="control1_div">
+              <label>Reglerparameter 1</label>
+              <p id="control1"></p>
+              <input id="control1_text" type="text" placeholder="Float" />
+            </div>
+            <div id="control2_div">
+              <label>Reglerparameter 2</label>
+              <p id="control2"></p>
+              <input id="control2_text" type="text" placeholder="Float" />
+            </div>
+            <div id="control3_div">
+              <label>Reglerparameter 3</label>
+              <p id="control3"></p>
+              <input id="control3_text" type="text" placeholder="Float" />
+            </div>
+            <div id="map_div">
+              <label>Bankarta</label>
+              <p id="map"></p>
+              <input id="map_text" type="text" placeholder="0 - 3" />
+            </div>
+            <div id="mission_div">
+              <label>Köruppdrag</label>
+              <p id="mission"></p>
+              <input id="mission_text" type="text" placeholder="ABC" />
+            </div>
+          </div>
+          <p>
+            <button id="exec_button" type="button">Execute changes</button>
+          </p>
+        </section>
+
+        <!-- STATUS SECTION -->
+        <section id="status">
+          <h2>Status</h2>
+          <p id="power"></p>
+          <p id="time"></p>
+          <p id="visited_nodes"></p>
+          <p id="steering_queue"></p>
+          <p id="distance_obstacle"></p>
+          <p id="distance_middle"></p>
+          <p id="distance_left"></p>
+          <p id="distance_right"></p>
+          <p id="route"></p>
+          <p id="speed"></p>
+        </section>
+
+        <!-- MAP SECTION -->
+        <section id="map_section">
+          <h2>Karta</h2>
+          <img src="images/logo_small.png" />
+          <!-- map -->
+        </section>
+      </main>
+
+      <footer>
+        <div id="copyright">
+          <p>&copy; Taxi Kurir Sundsvall</p>
+        </div>
+      </footer>
+      <!--end copyright-->
+    </div>
+    <!--end wrapper-->
+  </body>
+</html>
