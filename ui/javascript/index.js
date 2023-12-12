@@ -17,7 +17,7 @@ const DISPLAY_NAMES = [
 ];
 
 // här har vi destinationer upp till D, ändra sedan till hur många det faktiskt ska vara hehe
-const VALID_DESTINATIONS = /^[A-D]+(?:[A-D]+)*$/;
+const VALID_DESTINATIONS = /\b(?:[A-Z]{1,2}\s*)+\b/;
 
 const STEERING_COMMANDS = { 37: "left", 38: "up", 39: "right", 40: "none" };
 
@@ -52,7 +52,7 @@ async function fetch_img_content(path) {
 async function main() {
   removeEventListener("load", main);
 
-  // INITIALISE FILES
+  // INITIALISE LOCKS
   edit_locks(INITIAL_LOCK_DATA);
 
   // LOAD CONTENT FROM JSON FILES
@@ -60,15 +60,24 @@ async function main() {
   let output = await fetch_file_content("../IO/output.json");
 
   // SETUP
-
   const listen_for_directions = async (event) => {
-    output["steering_command"] = STEERING_COMMANDS[event.keyCode];
+    if (STEERING_COMMANDS[event.keyCode]) {
+      output["steering_command"] = STEERING_COMMANDS[event.keyCode];
+    } else {
+      output["steering_command"] = "none";
+    }
     await edit_output(output);
   };
+
   let current_speed = document.getElementById("current_speed");
   current_speed.innerHTML = output["speed"];
+
   let car_cam = document.getElementById("car_cam");
   car_cam.src = "../IO/out_img.jpg";
+  let map_graph = document.getElementById("map_graph");
+  let map = "../IO/graph" + output["map"] + ".png";
+  map_graph.src = map;
+
   update_controls(output);
   output["steering_command"] = "none";
   switch_to_manual_mode(output, listen_for_directions);
@@ -92,11 +101,14 @@ async function main() {
     switch_to_manual_mode(output, listen_for_directions);
   });
   auto_button.addEventListener("click", () => {
-    switch_to_auto_mode(output, listen_for_directions); //event.target
+    switch_to_auto_mode(output, listen_for_directions);
   });
 
   // UPDATE STATUS-BOX CONTENT
   update_status(input);
+
+  // FETCH CAMERA FEED
+  setInterval(update_image, 300);
 }
 
 /* --------------- FUNCTIONS FOR LOCKING/UNLOCKING DATA --------------- */
@@ -105,7 +117,6 @@ async function wait_for_lock() {
   let lock = await fetch_file_content("../IO/lock.json");
   while (lock["writing_lock"] == true) {
     console.log("we are locked");
-    // kolla på låset igen
     lock = await fetch_file_content("../IO/lock.json");
   }
   return lock;
@@ -150,13 +161,19 @@ function update_controls(output) {
   }
 }
 
+function update_image() {
+  console.log("updating image...");
+  let car_cam = document.getElementById("car_cam");
+  car_cam.src = "../IO/out_img.jpg?random=" + Math.random();
+}
+
 /* --------------- FUNCTIONS FOR CHANGING DATA (OUTPUT) --------------- */
 
 async function change_controls(output) {
   //getting all children of the controlsDiv
   let controls = document.getElementById("controls_div").children;
   let updated_output_data = output;
-  //get all children for every child = "grandchildren" of the controlsDiv :D
+  //get all children for every child = "grandchildren" of the controlsDiv
   for (var i = 0; i < controls.length; i++) {
     let control = controls[i];
     if (control.children.length > 1) {
@@ -193,6 +210,9 @@ async function change_controls(output) {
       );
     }
   }
+  let map_graph = document.getElementById("map_graph");
+  let map = "../IO/graph" + updated_output_data["map"] + ".png";
+  map_graph.src = map;
 }
 
 async function change_speed(output, id) {

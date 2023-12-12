@@ -96,13 +96,13 @@ h2 {
 #map_section {
   top: 58%;
   height: 45%;
+  overflow: auto;
 }
 
 #parameters {
   width: 30%;
   height: 45%;
   left: 0%;
-  overflow: scroll;
 }
 
 #parameters p {
@@ -118,7 +118,6 @@ input {
   left: 31%;
   top: 58%;
   width: 25%;
-  overflow: scroll;
 }
 
 #status p {
